@@ -10,6 +10,8 @@ import Foundation
 
 class ShoplistItem: NSObject, NSCoding {
   var text = ""
+  var quantity = 1
+  var price = 0.0
   var checked = false
 
   override init() {

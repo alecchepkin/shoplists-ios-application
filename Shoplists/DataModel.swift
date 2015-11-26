@@ -65,14 +65,17 @@ class DataModel {
   
   func handleFirstTime() {
     let userDefaults = NSUserDefaults.standardUserDefaults()
-    let firstTime = userDefaults.boolForKey("FirstTime")
-    if firstTime {
+    //let firstTime = userDefaults.boolForKey("FirstTime")
+    //if firstTime {
       let checklist = Shoplist(name: "List")
+      let item = ShoplistItem()
+      item.text = "Milk"
+      checklist.items.append(item)
       lists.append(checklist)
       indexOfSelectedShoplist = 0
-      userDefaults.setBool(false, forKey: "FirstTime")
+      //userDefaults.setBool(false, forKey: "FirstTime")
       userDefaults.synchronize()
-    }
+    //}
   }
   
   func sortShoplists() {

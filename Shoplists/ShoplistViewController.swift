@@ -106,6 +106,7 @@ class ShoplistViewController: UITableViewController, ItemDetailViewControllerDel
       controller.delegate = self
 
     } else if segue.identifier == "EditItem" {
+        print("EditItem")
       let navigationController = segue.destinationViewController as! UINavigationController
       let controller = navigationController.topViewController as! ItemDetailViewController
       controller.delegate = self

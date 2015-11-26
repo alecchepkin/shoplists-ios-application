@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		142A89C91C07250B003AE619 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		142A89C91C07250B003AE619 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		7B5BEE491B6629070019172B /* Shoplists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoplists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5BEE4C1B6629070019172B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5BEE4E1B6629070019172B /* ShoplistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShoplistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -52,7 +52,6 @@
 		7B5BEE401B6629070019172B = {
 			isa = PBXGroup;
 			children = (
-				142A89C91C07250B003AE619 /* Default-568h@2x.png */,
 				7B5BEE4B1B6629070019172B /* Shoplists */,
 				7B5BEE4A1B6629070019172B /* Products */,
 			);
@@ -69,18 +68,19 @@
 		7B5BEE4B1B6629070019172B /* Shoplists */ = {
 			isa = PBXGroup;
 			children = (
+				7B5BEE501B6629070019172B /* Main.storyboard */,
 				7B5BEE641B6A4C8F0019172B /* AllListsViewController.swift */,
-				7B5BEE4C1B6629070019172B /* AppDelegate.swift */,
-				7B5BEE531B6629070019172B /* Assets.xcassets */,
-				7B5BEE661B6A67690019172B /* Shoplist.swift */,
-				7B5BEE5E1B6668330019172B /* ShoplistItem.swift */,
 				7B5BEE4E1B6629070019172B /* ShoplistViewController.swift */,
-				7B5BEE6A1B6AA4A00019172B /* DataModel.swift */,
-				7B5BEE6C1B6B85E50019172B /* IconPickerViewController.swift */,
-				7B5BEE581B6629070019172B /* Info.plist */,
 				7B5BEE621B678B6D0019172B /* ItemDetailViewController.swift */,
 				7B5BEE681B6A778E0019172B /* ListDetailViewController.swift */,
-				7B5BEE501B6629070019172B /* Main.storyboard */,
+				7B5BEE6C1B6B85E50019172B /* IconPickerViewController.swift */,
+				7B5BEE4C1B6629070019172B /* AppDelegate.swift */,
+				7B5BEE531B6629070019172B /* Assets.xcassets */,
+				7B5BEE6A1B6AA4A00019172B /* DataModel.swift */,
+				7B5BEE661B6A67690019172B /* Shoplist.swift */,
+				7B5BEE5E1B6668330019172B /* ShoplistItem.swift */,
+				7B5BEE581B6629070019172B /* Info.plist */,
+				142A89C91C07250B003AE619 /* Default-568h@2x.png */,
 			);
 			path = Shoplists;
 			sourceTree = "<group>";
