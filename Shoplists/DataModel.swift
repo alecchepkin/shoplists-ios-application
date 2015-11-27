@@ -65,39 +65,39 @@ class DataModel {
     
     func handleFirstTime() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        //let firstTime = userDefaults.boolForKey("FirstTime")
-        //if firstTime {
-        
-        let checklist = Shoplist(name: "List")
-        
-        let item = ShoplistItem()
-        item.text = "Milk"
-        item.quantity = 3
-        item.price = 50.00
-        checklist.items.append(item)
-        
-        let item2 = ShoplistItem()
-        item2.text = "Bread"
-        item2.quantity = 2
-        item2.price = 10.00
-        checklist.items.append(item2)
-        
-        let item3 = ShoplistItem()
-        item3.text = "Butter"
-        item3.quantity = 1
-        item3.price = 70.00
-        checklist.items.append(item3)
-        
-        lists.append(checklist)
-        indexOfSelectedShoplist = 0
-        //userDefaults.setBool(false, forKey: "FirstTime")
-        userDefaults.synchronize()
-        //}
+        let firstTime = userDefaults.boolForKey("FirstTime")
+        if firstTime {
+            
+            let shoplist = Shoplist(name: "List")
+            
+            let item = ShoplistItem()
+            item.text = "Milk"
+            item.quantity = 3
+            item.price = 50.00
+            shoplist.items.append(item)
+            
+            let item2 = ShoplistItem()
+            item2.text = "Bread"
+            item2.quantity = 2
+            item2.price = 10.00
+            shoplist.items.append(item2)
+            
+            let item3 = ShoplistItem()
+            item3.text = "Butter"
+            item3.quantity = 1
+            item3.price = 70.00
+            shoplist.items.append(item3)
+            
+            lists.append(shoplist)
+            indexOfSelectedShoplist = 0
+            userDefaults.setBool(false, forKey: "FirstTime")
+            userDefaults.synchronize()
+        }
     }
     
     func sortShoplists() {
-        lists.sortInPlace({ checklist1, checklist2 in
-            return checklist1.name.localizedStandardCompare(checklist2.name) == .OrderedAscending
+        lists.sortInPlace({ shoplist1, shoplist2 in
+            return shoplist1.name.localizedStandardCompare(shoplist2.name) == .OrderedAscending
         })
     }
 }

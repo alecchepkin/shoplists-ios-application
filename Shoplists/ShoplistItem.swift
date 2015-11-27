@@ -19,6 +19,17 @@ class ShoplistItem: NSObject, NSCoding {
             return Double(quantity) * price
         }
     }
+    var priceToMoney: String {
+        get {
+            return FormatHelper.priceDoubleToMoney(price)
+        }
+    }
+    
+    var amountToMoney: String {
+        get {
+            return FormatHelper.priceDoubleToMoney(amount)
+        }
+    }
     
     override init() {
         super.init()
@@ -27,11 +38,15 @@ class ShoplistItem: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         text = aDecoder.decodeObjectForKey("Text") as! String
         checked = aDecoder.decodeBoolForKey("Checked")
+        quantity = aDecoder.decodeIntegerForKey("Quantity")
+        price = aDecoder.decodeDoubleForKey("Price")
         super.init()
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(text, forKey: "Text")
+        aCoder.encodeInteger(quantity, forKey: "Quantity")
+        aCoder.encodeDouble(price, forKey: "Price")
         aCoder.encodeBool(checked, forKey: "Checked")
     }
     

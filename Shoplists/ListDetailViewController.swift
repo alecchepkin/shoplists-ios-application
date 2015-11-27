@@ -2,8 +2,8 @@ import UIKit
 
 protocol ListDetailViewControllerDelegate: class {
   func listDetailViewControllerDidCancel(controller: ListDetailViewController)
-  func listDetailViewController(controller: ListDetailViewController, didFinishAddingShoplist checklist: Shoplist)
-  func listDetailViewController(controller: ListDetailViewController, didFinishEditingShoplist checklist: Shoplist)
+  func listDetailViewController(controller: ListDetailViewController, didFinishAddingShoplist shoplist: Shoplist)
+  func listDetailViewController(controller: ListDetailViewController, didFinishEditingShoplist shoplist: Shoplist)
 }
 
 class ListDetailViewController: UITableViewController, UITextFieldDelegate, IconPickerViewControllerDelegate {
@@ -13,17 +13,17 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
 
   weak var delegate: ListDetailViewControllerDelegate?
   
-  var checklistToEdit: Shoplist?
+  var shoplistToEdit: Shoplist?
   var iconName = "Folder"
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let checklist = checklistToEdit {
+    if let shoplist = shoplistToEdit {
       title = "Edit Shoplist"
-      textField.text = checklist.name
+      textField.text = shoplist.name
       doneBarButton.enabled = true
-      iconName = checklist.iconName
+      iconName = shoplist.iconName
     }
     
     iconImageView.image = UIImage(named: iconName)
@@ -39,13 +39,13 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
   }
   
   @IBAction func done() {
-    if let checklist = checklistToEdit {
-      checklist.name = textField.text!
-      checklist.iconName = iconName
-      delegate?.listDetailViewController(self, didFinishEditingShoplist: checklist)
+    if let shoplist = shoplistToEdit {
+      shoplist.name = textField.text!
+      shoplist.iconName = iconName
+      delegate?.listDetailViewController(self, didFinishEditingShoplist: shoplist)
     } else {
-      let checklist = Shoplist(name: textField.text!, iconName: iconName)
-      delegate?.listDetailViewController(self, didFinishAddingShoplist: checklist)
+      let shoplist = Shoplist(name: textField.text!, iconName: iconName)
+      delegate?.listDetailViewController(self, didFinishAddingShoplist: shoplist)
     }
   }
   

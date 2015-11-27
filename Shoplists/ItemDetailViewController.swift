@@ -35,7 +35,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             textField.text = item.text
             doneBarButton.enabled = true
             quantityField.text = "\(item.quantity)"
-            priceField.text = "\(item.price)"
+            priceField.text = FormatHelper.priceDoubleToMoney(item.price)
         }
     }
     
@@ -70,10 +70,24 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let oldText: NSString = textField.text!
-        let newText: NSString = oldText.stringByReplacingCharactersInRange(range, withString: string)
+        let oldText = textField.text! as NSString
+        let newText = oldText.stringByReplacingCharactersInRange(range, withString: string) as NSString!
+        print("newText: \(newText)")
+        switch textField.tag {
+        case 1:
+            doneBarButton.enabled = (newText.length > 0)
+            return true
+            
+        case 2:
+            textField.text = FormatHelper.stringPriceFilter(newText as String)
+            return false
+            
+         default:
+
+            textField.text = FormatHelper.moneyTextToMoney(newText as String)
+            
+            return false
+        }
         
-        doneBarButton.enabled = (newText.length > 0)
-        return true
     }
-}
+  }

@@ -34,8 +34,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     let index = dataModel.indexOfSelectedShoplist
     if index >= 0 && index < dataModel.lists.count {
-      let checklist = dataModel.lists[index]
-      performSegueWithIdentifier("ShowShoplist", sender: checklist)
+      let shoplist = dataModel.lists[index]
+      performSegueWithIdentifier("ShowShoplist", sender: shoplist)
     }
   }
   
@@ -53,12 +53,12 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = cellForTableView(tableView)
 
-    let checklist = dataModel.lists[indexPath.row]
-    cell.textLabel!.text = checklist.name
+    let shoplist = dataModel.lists[indexPath.row]
+    cell.textLabel!.text = shoplist.name
     cell.accessoryType = .DetailDisclosureButton
     
-    let count = checklist.countUncheckedItems()
-    if checklist.items.count == 0 {
+    let count = shoplist.countUncheckedItems()
+    if shoplist.items.count == 0 {
       cell.detailTextLabel!.text = "(No Items)"
     } else if count == 0 {
       cell.detailTextLabel!.text = "All Done!"
@@ -66,7 +66,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
       cell.detailTextLabel!.text = "\(count) Remaining"
     }
 
-    cell.imageView!.image = UIImage(named: checklist.iconName)
+    cell.imageView!.image = UIImage(named: shoplist.iconName)
 
     return cell
   }
@@ -83,8 +83,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     dataModel.indexOfSelectedShoplist = indexPath.row
     
-    let checklist = dataModel.lists[indexPath.row]
-    performSegueWithIdentifier("ShowShoplist", sender: checklist)
+    let shoplist = dataModel.lists[indexPath.row]
+    performSegueWithIdentifier("ShowShoplist", sender: shoplist)
   }
   
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -100,8 +100,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     let controller = navigationController.topViewController as! ListDetailViewController
     controller.delegate = self
     
-    let checklist = dataModel.lists[indexPath.row]
-    controller.checklistToEdit = checklist
+    let shoplist = dataModel.lists[indexPath.row]
+    controller.shoplistToEdit = shoplist
     
     presentViewController(navigationController, animated: true, completion: nil)
   }
@@ -109,13 +109,13 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "ShowShoplist" {
       let controller = segue.destinationViewController as! ShoplistViewController
-      controller.checklist = sender as! Shoplist
+      controller.shoplist = sender as! Shoplist
 
     } else if segue.identifier == "AddShoplist" {
       let navigationController = segue.destinationViewController as! UINavigationController
       let controller = navigationController.topViewController as! ListDetailViewController
       controller.delegate = self
-      controller.checklistToEdit = nil
+      controller.shoplistToEdit = nil
     }
   }
   
@@ -124,15 +124,15 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   }
   
   func listDetailViewController(controller: ListDetailViewController,
-    didFinishAddingShoplist checklist: Shoplist) {
-      dataModel.lists.append(checklist)
+    didFinishAddingShoplist shoplist: Shoplist) {
+      dataModel.lists.append(shoplist)
       dataModel.sortShoplists()
       tableView.reloadData()
       dismissViewControllerAnimated(true, completion: nil)
   }
   
   func listDetailViewController(controller: ListDetailViewController,
-    didFinishEditingShoplist checklist: Shoplist) {
+    didFinishEditingShoplist shoplist: Shoplist) {
       dataModel.sortShoplists()
       tableView.reloadData()
       dismissViewControllerAnimated(true, completion: nil)

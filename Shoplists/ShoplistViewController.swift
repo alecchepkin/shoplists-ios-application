@@ -9,14 +9,15 @@
 import UIKit
 
 class ShoplistViewController: UITableViewController, ItemDetailViewControllerDelegate {
-    var checklist: Shoplist!
+    var shoplist: Shoplist!
     
     @IBOutlet weak var inListLabel: UILabel!
     @IBOutlet weak var inCartLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = checklist.name
+        title = shoplist.name
+        updateTotalLabels()
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,14 +26,14 @@ class ShoplistViewController: UITableViewController, ItemDetailViewControllerDel
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return checklist.items.count
+        return shoplist.items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ShoplistItem", forIndexPath: indexPath)
         
-        let item = checklist.items[indexPath.row]
+        let item = shoplist.items[indexPath.row]
         
         configureTextForCell(cell, withShoplistItem: item)
         configureCheckmarkForCell(cell, withShoplistItem: item)
@@ -43,17 +44,18 @@ class ShoplistViewController: UITableViewController, ItemDetailViewControllerDel
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            let item = checklist.items[indexPath.row]
+            let item = shoplist.items[indexPath.row]
             item.toggleChecked()
             
             configureCheckmarkForCell(cell, withShoplistItem: item)
         }
+        updateTotalLabels()
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,forRowAtIndexPath indexPath: NSIndexPath) {
         
-        checklist.items.removeAtIndex(indexPath.row)
+        shoplist.items.removeAtIndex(indexPath.row)
         
         let indexPaths = [indexPath]
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
@@ -64,7 +66,7 @@ class ShoplistViewController: UITableViewController, ItemDetailViewControllerDel
         titleLabel.text = item.text
         
         let subtitleLabel = cell.viewWithTag(1002) as! UILabel
-        subtitleLabel.text = "\(item.quantity) x \(item.price) = \(item.amount)"
+        subtitleLabel.text = "\(item.quantity) x \(item.priceToMoney) = \(item.amountToMoney)"
     }
     
     func configureCheckmarkForCell(cell: UITableViewCell, withShoplistItem item: ShoplistItem) {
@@ -84,24 +86,25 @@ class ShoplistViewController: UITableViewController, ItemDetailViewControllerDel
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ShoplistItem) {
-        let newRowIndex = checklist.items.count
+        let newRowIndex = shoplist.items.count
         
-        checklist.items.append(item)
+        shoplist.items.append(item)
         
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
         let indexPaths = [indexPath]
         tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-        
+        updateTotalLabels()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ShoplistItem) {
-        if let index = checklist.items.indexOf(item) {
+        if let index = shoplist.items.indexOf(item) {
             let indexPath = NSIndexPath(forRow: index, inSection: 0)
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
                 configureTextForCell(cell, withShoplistItem: item)
             }
         }
+        updateTotalLabels()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -118,13 +121,14 @@ class ShoplistViewController: UITableViewController, ItemDetailViewControllerDel
             controller.delegate = self
             
             if let indexPath = tableView.indexPathForCell( sender as! UITableViewCell) {
-                controller.itemToEdit = checklist.items[indexPath.row]
+                controller.itemToEdit = shoplist.items[indexPath.row]
             }
         }
     }
     
     func updateTotalLabels(){
-        inListLabel.text =
+        inListLabel.text = FormatHelper.priceDoubleToMoney(shoplist.inListTotal)
+        inCartLabel.text = FormatHelper.priceDoubleToMoney(shoplist.inCartTotal)
     }
     
 }
