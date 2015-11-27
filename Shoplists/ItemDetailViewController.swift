@@ -34,10 +34,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             textField.text = item.text
             doneBarButton.enabled = true
-            quantityField.text = "sdfsda"
-            priceField.text = "23423"
-            //quantityField.text = "\(item.quantity)"
-            //priceField.text = "\(item.price)"
+            quantityField.text = "\(item.quantity)"
+            priceField.text = "\(item.price)"
         }
     }
     
@@ -53,12 +51,16 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textField.text!
+            item.quantity = Int(quantityField.text!)!
+            item.price = Double(priceField.text!)!
             delegate?.itemDetailViewController(self, didFinishEditingItem: item)
             
         } else {
             let item = ShoplistItem()
             item.text = textField.text!
             item.checked = false
+            item.quantity = Int(quantityField.text!)!
+            item.price = Double(priceField.text!)!
             delegate?.itemDetailViewController(self, didFinishAddingItem: item)
         }
     }
