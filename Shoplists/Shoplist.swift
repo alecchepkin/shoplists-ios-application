@@ -11,7 +11,6 @@ import UIKit
 class Shoplist: NSObject, NSCoding {
     var name = ""
     var items = [ShoplistItem]()
-    var iconName: String
     var inListTotal: Double {
         get {
             var total = 0.0
@@ -33,27 +32,22 @@ class Shoplist: NSObject, NSCoding {
         }
     }
     
-    convenience init(name: String) {
-        self.init(name: name, iconName: "No Icon")
-    }
-    
-    init(name: String, iconName: String) {
+    init(name: String) {
         self.name = name
-        self.iconName = iconName
         super.init()
     }
+    
+
     
     required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObjectForKey("Name") as! String
         items = aDecoder.decodeObjectForKey("Items") as! [ShoplistItem]
-        iconName = aDecoder.decodeObjectForKey("IconName") as! String
         super.init()
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: "Name")
         aCoder.encodeObject(items, forKey: "Items")
-        aCoder.encodeObject(iconName, forKey: "IconName")
     }
     
     func countUncheckedItems() -> Int {

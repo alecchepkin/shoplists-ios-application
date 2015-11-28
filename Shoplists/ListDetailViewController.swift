@@ -6,15 +6,13 @@ protocol ListDetailViewControllerDelegate: class {
   func listDetailViewController(controller: ListDetailViewController, didFinishEditingShoplist shoplist: Shoplist)
 }
 
-class ListDetailViewController: UITableViewController, UITextFieldDelegate, IconPickerViewControllerDelegate {
+class ListDetailViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var textField: UITextField!
-  @IBOutlet weak var doneBarButton: UIBarButtonItem!  
-  @IBOutlet weak var iconImageView: UIImageView!
+  @IBOutlet weak var doneBarButton: UIBarButtonItem!
 
   weak var delegate: ListDetailViewControllerDelegate?
   
   var shoplistToEdit: Shoplist?
-  var iconName = "Folder"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,10 +21,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
       title = "Edit Shoplist"
       textField.text = shoplist.name
       doneBarButton.enabled = true
-      iconName = shoplist.iconName
     }
-    
-    iconImageView.image = UIImage(named: iconName)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -41,10 +36,9 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
   @IBAction func done() {
     if let shoplist = shoplistToEdit {
       shoplist.name = textField.text!
-      shoplist.iconName = iconName
       delegate?.listDetailViewController(self, didFinishEditingShoplist: shoplist)
     } else {
-      let shoplist = Shoplist(name: textField.text!, iconName: iconName)
+      let shoplist = Shoplist(name: textField.text!)
       delegate?.listDetailViewController(self, didFinishAddingShoplist: shoplist)
     }
   }
@@ -64,16 +58,4 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate, Icon
     return true
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "PickIcon" {
-      let controller = segue.destinationViewController as! IconPickerViewController
-      controller.delegate = self
-    }
-  }
-  
-  func iconPicker(picker: IconPickerViewController, didPickIcon iconName: String) {
-    self.iconName = iconName
-    iconImageView.image = UIImage(named: iconName)
-    navigationController?.popViewControllerAnimated(true)
-  }
 }

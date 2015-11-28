@@ -19,7 +19,6 @@
 		7B5BEE671B6A67690019172B /* Shoplist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BEE661B6A67690019172B /* Shoplist.swift */; };
 		7B5BEE691B6A778E0019172B /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BEE681B6A778E0019172B /* ListDetailViewController.swift */; };
 		7B5BEE6B1B6AA4A00019172B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BEE6A1B6AA4A00019172B /* DataModel.swift */; };
-		7B5BEE6D1B6B85E50019172B /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BEE6C1B6B85E50019172B /* IconPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		7B5BEE661B6A67690019172B /* Shoplist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shoplist.swift; sourceTree = "<group>"; };
 		7B5BEE681B6A778E0019172B /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		7B5BEE6A1B6AA4A00019172B /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		7B5BEE6C1B6B85E50019172B /* IconPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +73,6 @@
 				7B5BEE4E1B6629070019172B /* ShoplistViewController.swift */,
 				7B5BEE621B678B6D0019172B /* ItemDetailViewController.swift */,
 				7B5BEE681B6A778E0019172B /* ListDetailViewController.swift */,
-				7B5BEE6C1B6B85E50019172B /* IconPickerViewController.swift */,
 				7B5BEE4C1B6629070019172B /* AppDelegate.swift */,
 				7B5BEE531B6629070019172B /* Assets.xcassets */,
 				7B5BEE6A1B6AA4A00019172B /* DataModel.swift */,
@@ -162,7 +159,6 @@
 				7B5BEE4F1B6629070019172B /* ShoplistViewController.swift in Sources */,
 				7B5BEE691B6A778E0019172B /* ListDetailViewController.swift in Sources */,
 				7B5BEE631B678B6D0019172B /* ItemDetailViewController.swift in Sources */,
-				7B5BEE6D1B6B85E50019172B /* IconPickerViewController.swift in Sources */,
 				7B5BEE671B6A67690019172B /* Shoplist.swift in Sources */,
 				1BD392351C08ABA10002C82B /* FormatHelper.swift in Sources */,
 				7B5BEE5F1B6668330019172B /* ShoplistItem.swift in Sources */,
