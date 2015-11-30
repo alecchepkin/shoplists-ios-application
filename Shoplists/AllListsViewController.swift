@@ -59,11 +59,11 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         let count = shoplist.countUncheckedItems()
         if shoplist.items.count == 0 {
-            cell.detailTextLabel!.text = "(No Items)"
+            cell.detailTextLabel!.text = ""
         } else if count == 0 {
-            cell.detailTextLabel!.text = "All Done!"
+            cell.detailTextLabel!.text = NSLocalizedString("ALL_DONE", comment: "All Done")
         } else {
-            cell.detailTextLabel!.text = "\(count) Remaining"
+            cell.detailTextLabel!.text = "\(count) " + NSLocalizedString("REMAINING", comment: "Remainning")//"\(count) Remaining"
         }
         
         return cell

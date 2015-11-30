@@ -35,6 +35,12 @@ class ShoplistItem: NSObject, NSCoding {
         super.init()
     }
     
+    init(text:String, quantity:Int, price:Double) {
+        self.text = text
+        self.quantity = quantity
+        self.price = price
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         text = aDecoder.decodeObjectForKey("Text") as! String
         checked = aDecoder.decodeBoolForKey("Checked")

@@ -60,7 +60,9 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             item.text = textField.text!
             item.checked = false
             item.quantity = Int(quantityField.text!)!
-            item.price = Double(priceField.text!)!
+            if let priceFieldText = Double(priceField.text!){
+                item.price = priceFieldText
+            }
             delegate?.itemDetailViewController(self, didFinishAddingItem: item)
         }
     }

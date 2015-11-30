@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Shoplists
+
+  Created by legr on 30/11/15.
+  Copyright © 2015 Razeware. All rights reserved.
+*/
+
+ALL_DONE = "All Done!";
+REMAINING = "Remainning";
+EDIT_SHOPLIST = "Edit Shoplist";

@@ -66,29 +66,41 @@ class DataModel {
     func handleFirstTime() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let firstTime = userDefaults.boolForKey("FirstTime")
-        if firstTime {
+        
+        if firstTime || true {
             
-            let shoplist = Shoplist(name: "List")
-            
-            let item = ShoplistItem()
-            item.text = "Milk"
-            item.quantity = 3
-            item.price = 50.00
-            shoplist.items.append(item)
-            
-            let item2 = ShoplistItem()
-            item2.text = "Bread"
-            item2.quantity = 2
-            item2.price = 10.00
-            shoplist.items.append(item2)
-            
-            let item3 = ShoplistItem()
-            item3.text = "Butter"
-            item3.quantity = 1
-            item3.price = 70.00
-            shoplist.items.append(item3)
+            let shoplist = Shoplist(name: "Grocery")
+
+            shoplist.items.append(ShoplistItem(text: "Milk", quantity: 3, price: 1.2))
+            shoplist.items.append(ShoplistItem(text: "Bread", quantity: 2, price: 2.0))
+            shoplist.items.append(ShoplistItem(text: "Butter", quantity: 1, price: 3.4))
+            shoplist.items.append(ShoplistItem(text: "Sugar", quantity: 1, price: 0.95))
+            shoplist.items.append(ShoplistItem(text: "Flour", quantity: 1, price: 0.55))
+            shoplist.items.append(ShoplistItem(text: "Chicken", quantity: 1, price: 2.05))
+            shoplist.items.append(ShoplistItem(text: "Eggs", quantity: 1, price: 1.45))
+            shoplist.items.append(ShoplistItem(text: "Apple", quantity: 1, price: 1.25))
+            shoplist.items.append(ShoplistItem(text: "Potatoes", quantity: 1, price: 0.35))
             
             lists.append(shoplist)
+            
+            let shoplist2 = Shoplist(name: "Dress")
+            
+            shoplist.items.append(ShoplistItem(text: "Pullover", quantity: 1, price: 100.0))
+            shoplist.items.append(ShoplistItem(text: "Suit", quantity: 2, price: 235.0))
+            shoplist.items.append(ShoplistItem(text: "Shirt", quantity: 1, price: 30.5))
+            
+            lists.append(shoplist2)
+            
+            let shoplist3 = Shoplist(name: "Dinner")
+            lists.append(shoplist3)
+            
+            let shoplist4 = Shoplist(name: "Market")
+            lists.append(shoplist4)
+            
+            let shoplist5 = Shoplist(name: "Weekend")
+            lists.append(shoplist5)
+            
+            
             indexOfSelectedShoplist = 0
             userDefaults.setBool(false, forKey: "FirstTime")
             userDefaults.synchronize()

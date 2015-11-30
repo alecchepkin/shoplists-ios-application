@@ -1,0 +1,51 @@
+
+/* Class = "UINavigationItem"; title = "(Name of the Shoplist)"; ObjectID = "07I-7K-Q55"; */
+"07I-7K-Q55.title" = "(Name of the Shoplist)";
+
+/* Class = "UILabel"; text = "In List:"; ObjectID = "1sd-qz-rGi"; */
+"1sd-qz-rGi.text" = "In List:";
+
+/* Class = "UILabel"; text = "0.00 x 0 = 0.00"; ObjectID = "227-vc-jbj"; */
+"227-vc-jbj.text" = "0.00 x 0 = 0.00";
+
+/* Class = "UINavigationItem"; title = "Add Item"; ObjectID = "7lU-fS-4d2"; */
+"7lU-fS-4d2.title" = "Add Item";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "9rj-sv-dVi"; */
+"9rj-sv-dVi.text" = "Price";
+
+/* Class = "UILabel"; text = "0000.00"; ObjectID = "B78-Lu-kE7"; */
+"B78-Lu-kE7.text" = "0000.00";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JXh-xZ-VTn"; */
+"JXh-xZ-VTn.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Name of the Item"; ObjectID = "KMn-Uj-6UN"; */
+"KMn-Uj-6UN.placeholder" = "Name of the Item";
+
+/* Class = "UILabel"; text = "0000.00"; ObjectID = "Qcs-ct-6nR"; */
+"Qcs-ct-6nR.text" = "0000.00";
+
+/* Class = "UITextField"; text = "1"; ObjectID = "Rac-lp-Bg9"; */
+"Rac-lp-Bg9.text" = "1";
+
+/* Class = "UINavigationItem"; title = "Shoplists"; ObjectID = "XTk-US-csp"; */
+"XTk-US-csp.title" = "Shoplists";
+
+/* Class = "UILabel"; text = "In Cart:"; ObjectID = "goW-EO-XWX"; */
+"goW-EO-XWX.text" = "In Cart:";
+
+/* Class = "UITextField"; placeholder = "Name of the List"; ObjectID = "km6-bE-fhp"; */
+"km6-bE-fhp.placeholder" = "Name of the List";
+
+/* Class = "UINavigationItem"; title = "Add Shoplist"; ObjectID = "p2J-mj-eru"; */
+"p2J-mj-eru.title" = "Add Shoplist";
+
+/* Class = "UILabel"; text = "Quantity"; ObjectID = "pgY-Th-0LN"; */
+"pgY-Th-0LN.text" = "Quantity";
+
+/* Class = "UILabel"; text = "√"; ObjectID = "ujj-40-mI0"; */
+"ujj-40-mI0.text" = "√";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "vau-aT-G0P"; */
+"vau-aT-G0P.placeholder" = "0.00";

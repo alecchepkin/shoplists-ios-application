@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		142A89CA1C07250B003AE619 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 142A89C91C07250B003AE619 /* Default-568h@2x.png */; };
 		1BD392351C08ABA10002C82B /* FormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD392341C08ABA10002C82B /* FormatHelper.swift */; };
+		1BD3923D1C0C6AB00002C82B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BD3923F1C0C6AB00002C82B /* Localizable.strings */; };
 		7B5BEE4D1B6629070019172B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BEE4C1B6629070019172B /* AppDelegate.swift */; };
 		7B5BEE4F1B6629070019172B /* ShoplistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5BEE4E1B6629070019172B /* ShoplistViewController.swift */; };
 		7B5BEE521B6629070019172B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5BEE501B6629070019172B /* Main.storyboard */; };
@@ -24,6 +25,9 @@
 /* Begin PBXFileReference section */
 		142A89C91C07250B003AE619 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		1BD392341C08ABA10002C82B /* FormatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatHelper.swift; sourceTree = "<group>"; };
+		1BD392361C0C64120002C82B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		1BD3923E1C0C6AB00002C82B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1BD392401C0C6AD30002C82B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7B5BEE491B6629070019172B /* Shoplists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoplists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5BEE4C1B6629070019172B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5BEE4E1B6629070019172B /* ShoplistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShoplistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -81,6 +85,7 @@
 				7B5BEE581B6629070019172B /* Info.plist */,
 				142A89C91C07250B003AE619 /* Default-568h@2x.png */,
 				1BD392341C08ABA10002C82B /* FormatHelper.swift */,
+				1BD3923F1C0C6AB00002C82B /* Localizable.strings */,
 			);
 			path = Shoplists;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 7B5BEE401B6629070019172B;
 			productRefGroup = 7B5BEE4A1B6629070019172B /* Products */;
@@ -144,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B5BEE541B6629070019172B /* Assets.xcassets in Resources */,
+				1BD3923D1C0C6AB00002C82B /* Localizable.strings in Resources */,
 				7B5BEE521B6629070019172B /* Main.storyboard in Resources */,
 				142A89CA1C07250B003AE619 /* Default-568h@2x.png in Resources */,
 			);
@@ -171,10 +178,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1BD3923F1C0C6AB00002C82B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BD3923E1C0C6AB00002C82B /* en */,
+				1BD392401C0C6AD30002C82B /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		7B5BEE501B6629070019172B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7B5BEE511B6629070019172B /* Base */,
+				1BD392361C0C64120002C82B /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -271,7 +288,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Shoplists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.netlixsoft.Shoplist;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.netlixsoft.Shoplists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -285,7 +302,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Shoplists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.netlixsoft.Shoplist;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.netlixsoft.Shoplists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
