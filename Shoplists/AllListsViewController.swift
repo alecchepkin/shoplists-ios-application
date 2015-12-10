@@ -11,6 +11,7 @@ import UIKit
 class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
     
     var dataModel: DataModel!
+    @IBOutlet weak var editLabel: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        editLabel.title = NSLocalizedString("Edit", comment: "Edit")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -69,6 +71,18 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         return cell
     }
     
+
+    @IBAction func startEditing(sender: UIBarButtonItem) {
+        editing = !self.editing
+        if editing == true {
+            editLabel.title = NSLocalizedString("Done", comment: "Done")
+        } else{
+            editLabel.title = NSLocalizedString("Edit", comment: "Edit")
+        }
+        
+        
+    }
+  
     func cellForTableView(tableView: UITableView) -> UITableViewCell {
         let cellIdentifier = "Cell"
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) {
@@ -85,12 +99,25 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         performSegueWithIdentifier("ShowShoplist", sender: shoplist)
     }
     
+    // MARK: - Table view - Editing
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let shoplist = dataModel.lists[sourceIndexPath.row]
+        dataModel.lists.removeAtIndex(sourceIndexPath.row)
+        dataModel.lists.insert(shoplist, atIndex: destinationIndexPath.row)
+    }
+    
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         dataModel.lists.removeAtIndex(indexPath.row)
         
         let indexPaths = [indexPath]
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
     }
+    
+    
     
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         let navigationController = storyboard!.instantiateViewControllerWithIdentifier("ListDetailNavigationController") as! UINavigationController

@@ -72,7 +72,6 @@
 		7B5BEE4B1B6629070019172B /* Shoplists */ = {
 			isa = PBXGroup;
 			children = (
-				7B5BEE501B6629070019172B /* Main.storyboard */,
 				7B5BEE641B6A4C8F0019172B /* AllListsViewController.swift */,
 				7B5BEE4E1B6629070019172B /* ShoplistViewController.swift */,
 				7B5BEE621B678B6D0019172B /* ItemDetailViewController.swift */,
@@ -86,6 +85,7 @@
 				142A89C91C07250B003AE619 /* Default-568h@2x.png */,
 				1BD392341C08ABA10002C82B /* FormatHelper.swift */,
 				1BD3923F1C0C6AB00002C82B /* Localizable.strings */,
+				7B5BEE501B6629070019172B /* Main.storyboard */,
 			);
 			path = Shoplists;
 			sourceTree = "<group>";

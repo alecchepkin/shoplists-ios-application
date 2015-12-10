@@ -67,7 +67,7 @@ class DataModel {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let firstTime = userDefaults.boolForKey("FirstTime")
         
-        if firstTime || true {
+        if firstTime {
             
             let shoplist = Shoplist(name: "Grocery")
 

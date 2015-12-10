@@ -9,3 +9,5 @@
 ALL_DONE = "All Done!";
 REMAINING = "Remainning";
 EDIT_SHOPLIST = "Edit Shoplist";
+Edit = "Edit";
+Done = "Done";

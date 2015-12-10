@@ -26,6 +26,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Shoplists" id="XTk-US-csp">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="VVu-sg-qg7">
+                            <connections>
+                                <action selector="startEditing:" destination="hTO-ce-4pU" id="XXF-Hm-xmy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vxq-bh-d1p">
                             <connections>
                                 <segue destination="dY4-1q-mPR" kind="presentation" identifier="AddShoplist" id="h9o-3U-2cV"/>
@@ -33,6 +38,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editLabel" destination="VVu-sg-qg7" id="fgg-pk-gWE"/>
                         <segue destination="o0h-WU-ec0" kind="show" identifier="ShowShoplist" id="vZH-4m-TEg"/>
                     </connections>
                 </tableViewController>
@@ -49,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="aoE-PT-2mM">
+                        <view key="tableFooterView" tag="1" contentMode="scaleToFill" id="aoE-PT-2mM">
                             <rect key="frame" x="0.0" y="130" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -69,7 +75,7 @@
                                         </mask>
                                     </variation>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcs-ct-6nR">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="SummuryBar" text="0000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcs-ct-6nR">
                                     <rect key="frame" x="89" y="11" width="70" height="21"/>
                                     <animations/>
                                     <constraints>
